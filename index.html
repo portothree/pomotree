@@ -13,6 +13,25 @@
 
 			.pomodoro {
 			}
+
+			.time {
+				text-align: center;
+			}
+
+			.time span {
+				font-size: 45px;
+			}
+
+			.start-btn {
+				all: unset;
+
+				border: 1px solid #000;
+				border-radius: 4px;
+
+				padding: 10px;
+
+				cursor: pointer;
+			}
 		</style>
 	</head>
 	<body>
@@ -23,7 +42,9 @@
 				<span id="seconds">00</span>
 			</div>
 
-			<button onClick="startNewPomodoro()">Start new pomodoro</button>
+			<button class="start-btn" onClick="startNewPomodoro()">
+				Start new pomodoro
+			</button>
 		</div>
 
 		<script src="js/three.js"></script>
