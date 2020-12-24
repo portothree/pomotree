@@ -71,22 +71,32 @@ function startNewTree() {
 
 	const renderer = new THREE.WebGLRenderer();
 
-	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.setSize(window.innerWidth - 100, window.innerHeight - 100);
 	document.body.appendChild(renderer.domElement);
 
 	const state = {
-		stem: 0
+		stem: 0,
+		leaves: 0
 	};
 
 	function render() {
 		requestAnimationFrame(render);
 
-		tree.rotation.y += 0.007;
+		tree.rotation.y += 0.001;
 
 		stem.scale.set(state.stem, 3, state.stem);
+		leave1.scale.set(state.leaves, 0.8, state.leaves);
+		leave2.scale.set(state.leaves, 0.7, state.leaves);
+		leave3.scale.set(state.leaves, 0.7, state.leaves);
+		leaveDark.scale.set(state.leaves, 2, state.leaves);
+		leaveLight.scale.set(state.leaves, 0.5, state.leaves);
 
 		if (state.stem < 0.3) {
-			state.stem += 0.001;
+			state.stem += 0.0001;
+		}
+
+		if (state.leaves < 1) {
+			state.leaves += 0.0001;
 		}
 
 		renderer.render(scene, camera);
